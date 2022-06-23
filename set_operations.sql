@@ -17,6 +17,18 @@ minus
 select Cust_ID from satis99;
 
 
+select employee_id, department_id from hr.employees 
+intersect 
+select employee_id, department_id from hr.job_history;
+
+select employee_id, department_id from hr.employees 
+minus 
+select employee_id, department_id from hr.job_history;
+
+select employee_id, department_id from hr.employees 
+union all
+select employee_id, department_id from hr.job_history;
+
 -- Grouping sets 
 select prod_id, cust_id, CHANNEL_ID, sum(AMOUNT_SOLD), count(QUANTITY_SOLD)  
 from sh.sales 
